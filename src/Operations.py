@@ -32,3 +32,14 @@ class Operation:
                 new_list.append(info)
         self.list_operation = new_list
         return self.list_operation
+
+    def sort_list(self, clean_operations_list):
+        """
+        Sort operations list
+        :param clean_operations_list: clean operations list
+        :return: self.list_operations fith 5 sort last operations
+        """
+        sorted(clean_operations_list, key=lambda dictionary: dictionary['date'], reverse=True)
+        self.list_operation = sorted(clean_operations_list, key=lambda dictionary: dictionary['date'], reverse=True)
+        self.list_operation = self.list_operation[:5]
+        return self.list_operation
