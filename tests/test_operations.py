@@ -31,3 +31,4 @@ def test_print_first_line():
 def test_hide_card_info():
     assert Operation().hide_card_info("Visa Gold 7305799447374042") == "Visa Gold 7305 79** **** 4042"
     assert Operation().hide_card_info("Счет 96292138399386853355") == "Счет **3355"
+
