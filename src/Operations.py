@@ -1,5 +1,5 @@
 import json
-
+from datetime import datetime as date
 
 class Operation:
     def __init__(self):
@@ -43,3 +43,14 @@ class Operation:
         self.list_operation = sorted(clean_operations_list, key=lambda dictionary: dictionary['date'], reverse=True)
         self.list_operation = self.list_operation[:5]
         return self.list_operation
+
+    def print_first_line(self, date_info, description):
+        """
+        Get formatted date and description
+        :param date_info: info about date
+        :param description: description
+        :return: formatted date and description
+        """
+        date_class = date.fromisoformat(date_info)
+        date_formatted = date_class.strftime("%d.%m.%Y")
+        return f"{date_formatted} {description}"
