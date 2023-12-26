@@ -19,3 +19,16 @@ class Operation:
         with open(data_path, 'r', encoding='UTF-8') as data_file:
             self.list_operation = json.load(data_file)
         return self.list_operation
+
+    def clean_operations_list(self, operations_list):
+        """
+        Clean None dict, info with CANCELED state and other artifacts
+        :param operations_list: user's operations list
+        :return: clean self.list_operations
+        """
+        new_list = []
+        for info in operations_list:
+            if info.get('state') == 'EXECUTED':
+                new_list.append(info)
+        self.list_operation = new_list
+        return self.list_operation
